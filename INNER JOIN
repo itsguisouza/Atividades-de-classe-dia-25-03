@@ -1,0 +1,40 @@
+CREATE TABLE CIDADES (
+  ID INT PRIMARY KEY,
+  NOME VARCHAR(60) NOT NULL,
+  POPULACAO INT
+  );
+  
+CREATE TABLE ALUNOS (
+  ID INT PRIMARY KEY,
+  NOME VARCHAR(60) NOT NULL,
+  DATA_NASC DATE,
+  CIDADE_ID INT,
+  
+  FOREIGN KEY(CIDADE_ID) REFERENCES CIDADE(ID)
+  );
+  
+  INSERT INTO CIDADES VALUES (1, 'Arraial dos Tucanos', 42632);
+  INSERT INTO CIDADES VALUES (2, 'Springfield', 13820);
+  INSERT INTO CIDADES VALUES (3, 'Hill Valley', 27383);
+  INSERT INTO CIDADES VALUES (4, 'Coruscant', 19138);
+  INSERT INTO CIDADES VALUES (5, 'Minas Tirith', 31394);
+  
+  insert into ALUNOS VALUES (1, 'Immanuel Kant', 1724-04-22, 4);
+  insert into ALUNOS VALUES (2, 'Alan Turing', 1912-06-23, 3);
+  insert into ALUNOS VALUES (3, 'George Boole', 2002-01-01, 1);
+  insert into ALUNOS VALUES (4, 'Lyyn Margulis', 1991-08-12, 3);
+  insert into ALUNOS VALUES (5, 'Nicola Tesla', 2090-01-08, NULL);
+  insert into ALUNOS VALUES (6, 'Ada Lovelace', 1978-05-28, 4);
+  insert into ALUNOS VALUES (7, 'Claude Shannon', 1982-10-15, 3);
+  insert into ALUNOS VALUES (8, 'Charles Darwin', 2010-02-06, NULL);
+  insert into ALUNOS VALUES (9, 'Marie Curie', 2007-07-12, 3);
+  insert into ALUNOS VALUES (10, 'Carl Sagan', 2000-11-20, 1);
+  insert into ALUNOS VALUES (11, 'Tim Berners-Lee', 1973-12-05, 4);
+  insert into ALUNOS VALUES (12, 'Richard Feynman', 1982-09-12, 1);
+  
+  SELECT * 
+  from ALUNOS INNER
+  JOIN CIDADES
+  ON CIDADE_ID = ALUNOS.CIDADE_ID;
+    
+    
